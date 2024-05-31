@@ -1,0 +1,37 @@
+import random
+otvet = 'да'
+print ("Добро пожаловать в числовую угадайку")
+
+def is_valid(x):
+    if x.isdigit() and 1 <= int(x) <=100:
+        return True
+    else:
+        return False
+    
+
+counter = 0 
+n = int(input("Введите правую границу чисел: "))
+num = random.randint(1, n)
+
+while True:
+    x = input("Введите число от 1 до {} включительно: ".format(n) )
+    if is_valid (x)  == False:
+        print ("А может быть все-таки введем целое число от 1 до 100?")   
+    else:
+        x = int(x)
+        if x > num:
+            print('Ваше число больше загаданного, попробуйте еще разок')
+            counter += 1
+            continue
+        elif x < num:
+            print('Ваше число меньше загаданного, попробуйте еще разок')
+            counter += 1
+            continue
+        else:
+            print("Вы угадали, поздравляем!")
+            print("Количество ваших попыток {}".format(counter))
+            print ("Спасибо, что играли в числовую угадайку. Еще увидимся...")
+            break
+    print ("Хотите сыграть еще разок?")
+   
+        
